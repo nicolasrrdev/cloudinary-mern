@@ -51,6 +51,7 @@ function FormularioProducto() {
 
     try {
       const response = await axios.post('https://nicolasreinales.onrender.com/products', formData)
+      // const response = await axios.post('http://localhost:4003/products', formData)
       console.log('Producto creado:', response.data)
       displaySuccessMessage('Producto creado exitosamente')
       setNombre('')
