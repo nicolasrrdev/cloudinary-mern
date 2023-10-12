@@ -10,7 +10,7 @@ const upload = multer({ dest: 'uploads/' })
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: 'Prueba'
+      folder: 'cloudinary-example'
     })
     const product = new Product({
       name: req.body.name,

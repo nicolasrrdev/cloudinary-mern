@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import './FormularioProducto.css'
 
-function FormularioProducto({ onSubmit }) {
+function FormularioProducto() {
   const [nombre, setNombre] = useState('')
   const [descripcion, setDescripcion] = useState('')
   const [imagen, setImagen] = useState(null)
@@ -31,7 +31,7 @@ function FormularioProducto({ onSubmit }) {
     setSuccessMessage(message)
     setTimeout(() => {
       setSuccessMessage('')
-    }, 2000)
+    }, 5000)
   }
 
   const handleSubmit = async (event) => {
@@ -78,11 +78,6 @@ function FormularioProducto({ onSubmit }) {
   return (
     <div className='container'>
       <h2>Crear Producto</h2>
-      {successMessage && (
-      <div className='success-message'>
-        {successMessage}
-      </div>
-      )}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='nombre'>Nombre:</label>
@@ -118,6 +113,11 @@ function FormularioProducto({ onSubmit }) {
           {isLoading ? 'Realizando Operación...' : 'Crear Producto'}
         </button>
       </form>
+      {successMessage && (
+      <div className='success-message'>
+        {successMessage}
+      </div>
+      )}
     </div>
   )
 }
